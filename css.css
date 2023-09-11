@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 20px;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#keyboard {
+  display: grid;
+  grid-template-columns: repeat(12, auto);
+  justify-content: start;
+  --u: calc(90vw / 12.2);
+  --w: calc(var(--u) * 1);
+  --b: calc(var(--u) * 0.6);
+  gap: calc(var(--u) * 0.2);
+}
+
+#keyboard div {
+  border: 2px solid #333;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--b) / 2);
+  user-select: none;
+}
+#keyboard div:active {
+  background: #ddd;
+}
+
+#keyboard .w_key {
+  width: var(--w);
+  height: var(--w);
+}
+
+#keyboard .b_key {
+  width: var(--b);
+  height: var(--b);
+  position: relative;
+  top: calc(var(--b) / -2.2);
+}
