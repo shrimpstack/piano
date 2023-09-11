@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
 function create_keys() {
   let keyboard_el = find('#keyboard');
   keyboard_el.innerHTML = "";
-  for(let c=0; c<3; c++) {
+  for(let c=3; c--;) {
     for(let f=0; f<12; f++) {
       let name = ["do", "+", "re", "+", "mi", "fa", "+", "so", "+", "ra", "+", "si"][f];
       let key_el = new_el_to_el(keyboard_el, 'div', name);
@@ -14,6 +14,7 @@ function create_keys() {
       key_el.setAttribute('key', c + "-" + f);
       key_el.addEventListener('touchstart', () => up(keys[c][f]));
       key_el.addEventListener('touchend', () => down(keys[c][f]));
+      key_el.addEventListener('contextmenu', e => e.preventdefault());
       key_el.addEventListener('mousedown', () => up(keys[c][f]));
       key_el.addEventListener('mouseup', () => down(keys[c][f]));
     }
